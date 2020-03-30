@@ -2,83 +2,114 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class Snake {
-    Square square;
-    private List<Square> listOfSquares;
 
-    // kierunki ruchów
-    private int xDir;
-    private int yDir;
+    Point point;
+    private List<Point> points_list;
+    private int x_direction;
+    private int y_direction;
 
-    public Snake(Square square) {
-        listOfSquares = new LinkedList<>();
-        listOfSquares.add(square);
-        this.square = square;
-    }
-
-    public List<Square> getSquaresList() {
-        return listOfSquares;
+    public Snake(Point point) {
+        points_list = new LinkedList<>();
+        points_list.add(point);
+        this.point = point;
     }
 
     /***
-     * Setting snake direction to move UP
+     * Get current score
+     *
+     * @return Current score
+     */
+    public int getScore() {
+        int score = points_list.size() - 1;
+        return score;
+    }
+
+    /***
+     * Get list of Points in the snake
+     *
+     * @return list of points in the snake
+     */
+    public List<Point> getPointsList() {
+        return points_list;
+    }
+
+    /***
+     * Snake move UP
      */
     public void setDirUp() {
-        if (yDir == 1 && listOfSquares.size() > 1) {
+        if (y_direction == 1 && points_list.size() > 1) {
             return;
         }
-        xDir = 0;
-        yDir = -1;
+        x_direction = 0;
+        y_direction = -1;
     }
 
     /***
-     * Setting snake direction to move DOWN
+     * Snake move DOWN
      */
     public void setDirDown() {
-        if (yDir == -1 && listOfSquares.size() > 1) {
+        if (y_direction == -1 && points_list.size() > 1) {
             return;
         }
-        xDir = 0;
-        yDir = 1;
+        x_direction = 0;
+        y_direction = 1;
     }
 
     /***
-     * Setting snake direction to move LEFT
+     * Snake move LEFT
      */
     public void setDirLeft() {
-        if (xDir == 1 && listOfSquares.size() > 1) {
+        if (x_direction == 1 && points_list.size() > 1) {
             return;
         }
-        xDir = -1;
-        yDir = 0;
+        x_direction = -1;
+        y_direction = 0;
     }
 
     /***
-     * Setting snake direction to move RIGHT
+     * Snake move RIGHT
      */
     public void setDirRight() {
-        if (xDir == -1 && listOfSquares.size() > 1) {
+        if (x_direction == -1 && points_list.size() > 1) {
             return;
         }
-        xDir = 1;
-        yDir = 0;
+        x_direction = 1;
+        y_direction = 0;
     }
 
     /***
      * Move snake towards next point based on directions
      */
     public void moveSnake() {
-        for (int i = listOfSquares.size() - 1; i >= 1; i--) {
-            listOfSquares.get(i).setPosition(listOfSquares.get(i - 1));
+        for (int i = points_list.size() - 1; i >= 1; i--) {
+            points_list.get(i).setPoint(points_list.get(i - 1));
         }
-        listOfSquares.get(0).shiftPosition(xDir, yDir);
+        points_list.get(0).movePoint(x_direction, y_direction);
     }
 
     /***
-     * Extending Snake points list by point
+     * Add point to the Snake
      *
-     * @param square Point of extension
+     * @param point Point
      */
-    public void extendSnake(Square square) {
-        listOfSquares.add(square);
+    public void growSnake(Point point) {
+        points_list.add(point);
+    }
+
+    /***
+     * Checking snake's points collision
+     *
+     * @return has collision
+     */
+    public boolean checkItselfCollision() {
+        for (int i = 0; i < points_list.size(); i++) {
+            for (int j = i + 1; j < points_list.size(); j++) {
+                if (points_list.get(i).getPosX() == points_list.get(j).getPosX() && points_list.get(i).getPosY() == points_list.get(j).getPosY()) {
+
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 }

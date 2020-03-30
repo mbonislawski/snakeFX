@@ -1,81 +1,137 @@
-import javafx.scene.Scene;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 
 import java.util.Random;
 
 public class Board {
-    private int colsNr;
-    private int rowsNr;
+    private int rows_nr;
+    private int cols_nr;
+    private int windowWidth;
+    private int windowHeight;
+    private int dot_size = 20;
 
-    private int mapHeight;
-    private int mapWidth;
-
-    private int pointSize = 10;
-
-    private Food food;
     private Snake snake;
+    private Food food;
 
-    /*** Konstruktor klasy Board
-    * @param width - szerokosc okna gry
-    * @param height - wysokosc okna gry
-    */
+    /***
+     * Constructor for Board class
+     *
+     * @param width Width of window screen
+     * @param height Height of window screen
+     */
     public Board(int width, int height) {
-        // ustawienie parametrow
-        this.mapHeight = height;
-        this.mapWidth = width;
+        // Setting board size
+        this.windowWidth = width;
+        this.windowHeight = height;
 
-        // stworzenie siatki planszy
-        colsNr = width / pointSize;
-        rowsNr = height / pointSize;
+        // Getting number of rows and columns needed to create board
+        rows_nr = height / dot_size;
+        cols_nr = width / dot_size;
 
-        // utworzenie węża
-        snake = new Snake(new Square(colsNr / 2, rowsNr / 2));
+        // Add snake in the center of the map
+        snake = new Snake(new Point(rows_nr / 2, cols_nr / 2));
 
-        // utworzenie elementu do zjedzenia
-        food = new Food(new Square(getRandomPointPosition(colsNr), getRandomPointPosition(rowsNr)));
+        // Add Food in random position
+        food = new Food(new Point(5, 5));
     }
 
+    /***
+     * Draw board with objects
+     *
+     * @param context JavaFX GraphicsContext object
+     */
     public void drawBoard(GraphicsContext context) {
 
-        updateBoard();
+        refreshBoard();
 
-        // ustawienie parametrów tła
+        // Draw window
         context.setFill(Color.BLACK);
-        context.fillRect(0, 0, this.mapWidth, this.mapHeight);
+        context.fillRect(0, 0, this.windowWidth, this.windowHeight);
 
-        // rysowanie znacznika jedzenia
+        // Draw food
+        context.setFill(Color.RED);
+        int paint_food_x = food.getPoint().getPosX() * dot_size;
+        int paint_food_y = food.getPoint().getPosY() * dot_size;
+        context.fillRect(paint_food_x, paint_food_y, dot_size, dot_size);
+
+        // Draw snake
         context.setFill(Color.GREEN);
-        int foodPosX = food.getSquare().getX();
-        int foodPosY = food.getSquare().getY();
-        context.fillRect(foodPosX, foodPosY, this.pointSize, this.pointSize);
 
-        // rysowanie węża
-        context.setFill(Color.WHITE);
-
-        for (Square point : snake.getSquaresList()) {
-            int topLeftX = point.getX() * pointSize;
-            int topLeftY = point.getY() * pointSize;
-            context.fillRect(topLeftX, topLeftY, pointSize, pointSize);
+        for (Point point : snake.getPointsList()) {
+            int paint_snake_x = point.getPosX() * dot_size;
+            int paint_snake_y = point.getPosY() * dot_size;
+            context.fillRect(paint_snake_x, paint_snake_y, dot_size, dot_size);
         }
         context.setFill(Color.WHITE);
+        context.fillText("Score : " + snake.getScore(), windowWidth - 80, dot_size * 1.5);
+
     }
 
-    private Integer getRandomPointPosition(int max) {
-        Random random = new Random();
-        // numer z przedzialu 0 - wys/szer mapy z uwzględnieniem że nie może być poza pierwszą kolumną
-        int i = random.nextInt(max - 1) * pointSize;
-        return i;
+    /***
+     * Reset Snake and Food object to start a new game
+     */
+    public void resetBoard() {
+        // create Snake
+        snake = new Snake(new Point(cols_nr / 2, rows_nr / 2));
+
+        // Create Food
+        food = new Food(new Point(getRandomInt(cols_nr), getRandomInt(rows_nr)));
     }
 
+    /***
+     * Get Snake object
+     *
+     * @return Snake object
+     */
     public Snake getSnake() {
         return snake;
     }
 
+
     /***
-     * Method updates snake position and checks if snake didn't collide with a wall or collide with itself
+     * Update snake position and look for collision
      */
-    public void updateBoard() {
+    public void refreshBoard() {
         snake.moveSnake();
+        if (snake.getPointsList().get(0).isEqual(food.getPoint())) {
+            snake.growSnake(food.getPoint());
+            food.setPoint(getRandomPoint());
+        } else if (!snake.getPointsList().get(0).inWindow(0, 0, rows_nr - 1, cols_nr - 1)) {
+            resetBoard();
+        } else if (snake.checkItselfCollision()) {
+            resetBoard();
+        }
+    }
+
+    /***
+     * Get random Point object which is not part of snake
+     *
+     * @return Point with random cords
+     */
+    private Point getRandomPoint() {
+        outerLoop:
+        while (true) {
+            int randX = getRandomInt(rows_nr);
+            int randY = getRandomInt(cols_nr);
+
+            for (Point point : snake.getPointsList()) {
+                if (randX == point.getPosX() && randY == point.getPosY()) {
+                    continue outerLoop;
+                }
+            }
+            return new Point(randX, randY);
+        }
+    }
+
+    /***
+     * Get random number
+     *
+     * @param max number
+     * @return Random number from 0 to max
+     */
+    private Integer getRandomInt(int max) {
+        Random random = new Random();
+        int i = random.nextInt(max);
+        return i;
     }
 }

@@ -1,7 +1,7 @@
 import javafx.animation.AnimationTimer;
 import javafx.scene.canvas.GraphicsContext;
 
-public class Engine{
+public class GameEngine{
 
     private Board board;
     private GraphicsContext context;
@@ -15,7 +15,7 @@ public class Engine{
      * @param board Board class object
      * @param context GraphicsContext class object
      */
-    public Engine(Board board, GraphicsContext context){
+    public GameEngine(Board board, GraphicsContext context){
         this.board = board;
         this.context = context;
     }

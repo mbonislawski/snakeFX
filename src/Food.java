@@ -1,11 +1,31 @@
 public class Food {
-    private Square square;
 
-    public Food(Square square) {
-        this.square = square;
+    private Point point;
+
+    /***
+     * Constructor for Food class
+     *
+     * @param point Point object
+     */
+    public Food(Point point){
+        this.point = point;
     }
 
-    public Square getSquare() {
-        return square;
+    /***
+     * Get Food position
+     *
+     * @return Food Point position
+     */
+    public Point getPoint() {
+        return point;
+    }
+
+    /***
+     * Setting Food position
+     *
+     * @param point Point object
+     */
+    public void setPoint(Point point){
+        this.point = point;
     }
 }

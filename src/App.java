@@ -5,30 +5,41 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
-public class Main extends Application {
-    private Board board;
-    private Engine engine;
+public class App extends Application {
+
+    private Board gameBoard;
+    private GameEngine gameEngine;
     private GraphicsContext context;
 
+    private final int screenWidth = 600;
+    private final int screenHeight = 600;
 
-    private final int windowWidth = 700;
-    private final int windowHeight = 700;
 
+    public static void main(String[] args) {
+        launch(args);
+    }
+
+    /***
+     * Overriding build in JavaFx method "start"
+     *
+     * @param primaryStage -
+     */
     @Override
     public void start(Stage primaryStage) {
 
         StackPane root = new StackPane();
-        Canvas canvas = new Canvas(windowWidth, windowHeight);
+        Canvas canvas = new Canvas(screenWidth, screenHeight);
         context = canvas.getGraphicsContext2D();
 
         canvas.setFocusTraversable(true);
 
-        board = new Board(windowWidth, windowHeight);
-        board.drawBoard(context);
+        gameBoard = new Board(screenWidth,screenHeight);
+        gameEngine = new GameEngine(gameBoard,context);
+        gameBoard.drawBoard(context);
 
         canvas.setOnKeyPressed(e -> {
-            if (engine.isKeyAvailable()){
-                Snake snake = board.getSnake();
+            if (gameEngine.isKeyAvailable()){
+                Snake snake = gameBoard.getSnake();
                 switch (e.getCode()) {
                     case UP:
                         snake.setDirUp();
@@ -43,7 +54,7 @@ public class Main extends Application {
                         snake.setDirRight();
                         break;
                 }
-                engine.setKeyAvailable(false);
+                gameEngine.setKeyAvailable(false);
             }
         });
 
@@ -51,15 +62,11 @@ public class Main extends Application {
         Scene scene = new Scene(root);
 
         primaryStage.setResizable(false);
-        primaryStage.setTitle("Marcin Bonisławski, 267955 - Snake");
+        primaryStage.setTitle("Snake - 267955");
         primaryStage.setOnCloseRequest(e -> System.exit(0));
         primaryStage.setScene(scene);
         primaryStage.show();
 
-        engine.startGame();
-    }
-
-    public static void main(String[] args) {
-        launch(args);
+        gameEngine.startGame();
     }
 }
