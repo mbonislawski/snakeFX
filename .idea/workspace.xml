@@ -1,20 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="SnakeFX:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="f977aa13-fa5c-42db-98a4-302fd0f81a86" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/SnakeFX_jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SnakeFX/App$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SnakeFX/App$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SnakeFX/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SnakeFX/App.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SnakeFX/Board.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SnakeFX/Board.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SnakeFX/GameEngine$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SnakeFX/GameEngine$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SnakeFX/GameEngine.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SnakeFX/GameEngine.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SnakeFX/Snake.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SnakeFX/Snake.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SnakeFX/App$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SnakeFX/App.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SnakeFX/Board.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SnakeFX/Food.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SnakeFX/GameEngine$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SnakeFX/GameEngine.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SnakeFX/META-INF/SnakeFX.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SnakeFX/Point.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SnakeFX/Snake.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Board.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Food.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Food.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GameEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GameEngine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Point.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Point.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Snake.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Snake.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,7 +49,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
@@ -76,7 +82,12 @@
       <workItem from="1584904267962" duration="1306000" />
       <workItem from="1584905996673" duration="5030000" />
       <workItem from="1584916988987" duration="16607000" />
-      <workItem from="1585684520532" duration="960000" />
+      <workItem from="1585684520532" duration="2404000" />
+      <workItem from="1585762307162" duration="138000" />
+      <workItem from="1585765271118" duration="194000" />
+      <workItem from="1585765810288" duration="94000" />
+      <workItem from="1585766416411" duration="294000" />
+      <workItem from="1585767124142" duration="600000" />
     </task>
     <servers />
   </component>
@@ -84,6 +95,14 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="424" y="251" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1585767234653">
+      <screen x="0" y="23" width="1920" height="1132" />
+    </state>
+    <state x="424" y="251" key="#com.intellij.execution.impl.EditConfigurationsDialog/1920.23.1920.1057/0.23.1920.1132@0.23.1920.1132" timestamp="1585767234653" />
+    <state x="710" y="437" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1585767364900">
+      <screen x="0" y="23" width="1920" height="1132" />
+    </state>
+    <state x="710" y="437" key="#com.intellij.ide.util.TreeClassChooserDialog/1920.23.1920.1057/0.23.1920.1132@0.23.1920.1132" timestamp="1585767364900" />
     <state x="446" y="23" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1585591290043">
       <screen x="0" y="23" width="1920" height="1132" />
     </state>
@@ -92,30 +111,42 @@
       <screen x="0" y="23" width="1920" height="1132" />
     </state>
     <state x="698" y="343" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/1920.23.1920.1057/0.23.1920.1132@0.23.1920.1132" timestamp="1584917557490" />
-    <state width="1878" height="314" key="GridCell.Tab.0.bottom" timestamp="1585681686978">
+    <state x="698" y="328" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1585761472199">
+      <screen x="0" y="23" width="1920" height="1132" />
+    </state>
+    <state x="698" y="328" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/1920.23.1920.1057/0.23.1920.1132@0.23.1920.1132" timestamp="1585761472199" />
+    <state x="747" y="350" key="FileChooserDialogImpl" timestamp="1585761466507">
+      <screen x="0" y="23" width="1920" height="1132" />
+    </state>
+    <state x="747" y="350" key="FileChooserDialogImpl/1920.23.1920.1057/0.23.1920.1132@0.23.1920.1132" timestamp="1585761466507" />
+    <state width="1878" height="314" key="GridCell.Tab.0.bottom" timestamp="1585766446242">
       <screen x="0" y="23" width="1920" height="1132" />
     </state>
     <state width="1878" height="314" key="GridCell.Tab.0.bottom/0.23.1920.1132@0.23.1920.1132" timestamp="1585681686978" />
-    <state width="1878" height="314" key="GridCell.Tab.0.bottom/1920.23.1920.1057/0.23.1920.1132@0.23.1920.1132" timestamp="1585664202232" />
-    <state width="1878" height="314" key="GridCell.Tab.0.center" timestamp="1585681686977">
+    <state width="1878" height="314" key="GridCell.Tab.0.bottom/1920.23.1920.1057/0.23.1920.1132@0.23.1920.1132" timestamp="1585766446242" />
+    <state width="1878" height="314" key="GridCell.Tab.0.center" timestamp="1585766446241">
       <screen x="0" y="23" width="1920" height="1132" />
     </state>
     <state width="1878" height="314" key="GridCell.Tab.0.center/0.23.1920.1132@0.23.1920.1132" timestamp="1585681686977" />
-    <state width="1878" height="314" key="GridCell.Tab.0.center/1920.23.1920.1057/0.23.1920.1132@0.23.1920.1132" timestamp="1585664202231" />
-    <state width="1878" height="314" key="GridCell.Tab.0.left" timestamp="1585681686977">
+    <state width="1878" height="314" key="GridCell.Tab.0.center/1920.23.1920.1057/0.23.1920.1132@0.23.1920.1132" timestamp="1585766446241" />
+    <state width="1878" height="314" key="GridCell.Tab.0.left" timestamp="1585766446240">
       <screen x="0" y="23" width="1920" height="1132" />
     </state>
     <state width="1878" height="314" key="GridCell.Tab.0.left/0.23.1920.1132@0.23.1920.1132" timestamp="1585681686977" />
-    <state width="1878" height="314" key="GridCell.Tab.0.left/1920.23.1920.1057/0.23.1920.1132@0.23.1920.1132" timestamp="1585664202231" />
-    <state width="1878" height="314" key="GridCell.Tab.0.right" timestamp="1585681686977">
+    <state width="1878" height="314" key="GridCell.Tab.0.left/1920.23.1920.1057/0.23.1920.1132@0.23.1920.1132" timestamp="1585766446240" />
+    <state width="1878" height="314" key="GridCell.Tab.0.right" timestamp="1585766446241">
       <screen x="0" y="23" width="1920" height="1132" />
     </state>
     <state width="1878" height="314" key="GridCell.Tab.0.right/0.23.1920.1132@0.23.1920.1132" timestamp="1585681686977" />
-    <state width="1878" height="314" key="GridCell.Tab.0.right/1920.23.1920.1057/0.23.1920.1132@0.23.1920.1132" timestamp="1585664202232" />
-    <state x="630" y="421" key="com.intellij.ide.util.TipDialog" timestamp="1585684520708">
+    <state width="1878" height="314" key="GridCell.Tab.0.right/1920.23.1920.1057/0.23.1920.1132@0.23.1920.1132" timestamp="1585766446241" />
+    <state x="484" y="208" key="SettingsEditor" timestamp="1585767388155">
+      <screen x="0" y="23" width="1920" height="1132" />
+    </state>
+    <state x="484" y="208" key="SettingsEditor/1920.23.1920.1057/0.23.1920.1132@0.23.1920.1132" timestamp="1585767388155" />
+    <state x="630" y="421" key="com.intellij.ide.util.TipDialog" timestamp="1585767132494">
       <screen x="0" y="23" width="1920" height="1132" />
     </state>
     <state x="630" y="421" key="com.intellij.ide.util.TipDialog/0.23.1920.1132@0.23.1920.1132" timestamp="1585684520708" />
-    <state x="630" y="421" key="com.intellij.ide.util.TipDialog/1920.23.1920.1057/0.23.1920.1132@0.23.1920.1132" timestamp="1584916988332" />
+    <state x="630" y="421" key="com.intellij.ide.util.TipDialog/1920.23.1920.1057/0.23.1920.1132@0.23.1920.1132" timestamp="1585767132494" />
   </component>
 </project>

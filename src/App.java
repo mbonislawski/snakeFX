@@ -25,7 +25,7 @@ public class App extends Application {
     /***
      * Overriding JavaFx method (start)
      *
-     * @param primaryStage
+     * @param primaryStage stage
      */
     @Override
     public void start(Stage primaryStage) {
