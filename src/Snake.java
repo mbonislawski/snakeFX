@@ -105,7 +105,6 @@ public class Snake {
         for (int i = 0; i < points_list.size(); i++) {
             for (int j = i + 1; j < points_list.size(); j++) {
                 if (points_list.get(i).getPosX() == points_list.get(j).getPosX() && points_list.get(i).getPosY() == points_list.get(j).getPosY()) {
-
                     return true;
                 }
             }

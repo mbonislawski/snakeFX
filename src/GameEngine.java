@@ -1,13 +1,12 @@
 import javafx.animation.AnimationTimer;
 import javafx.scene.canvas.GraphicsContext;
 
-public class GameEngine{
+public class GameEngine {
 
     private Board board;
     private GraphicsContext context;
-    private AnimationTimer animator;
     private long lastRefreshTime;
-    private boolean keyAvailable = true;
+    private boolean canMove = true;
 
     /***
      * Constructor for class GameEngine
@@ -15,15 +14,15 @@ public class GameEngine{
      * @param board Board class object
      * @param context GraphicsContext class object
      */
-    public GameEngine(Board board, GraphicsContext context){
+    public GameEngine(Board board, GraphicsContext context) {
         this.board = board;
         this.context = context;
     }
 
     /***
-     * Starting game
+     * Start game
      */
-    public void startGame(){
+    public void startGame() {
         lastRefreshTime = System.currentTimeMillis();
         AnimationTimer animator = new AnimationTimer(){
             @Override
@@ -32,7 +31,7 @@ public class GameEngine{
                 if ((currentTime-lastRefreshTime)>100){
                     board.drawBoard(context);
                     lastRefreshTime = System.currentTimeMillis();
-                    keyAvailable = true;
+                    canMove = true;
                 }
             }
         };
@@ -40,20 +39,20 @@ public class GameEngine{
     }
 
     /***
-     * Checking if new pressed key can change snake movement direction
+     * Check if pressed key can change snake direction
      *
-     * @return Is key available to press
+     * @return can press button
      */
-    public boolean isKeyAvailable(){
-        return keyAvailable;
+    public boolean canMove() {
+        return canMove;
     }
 
     /***
-     * Setting if its possible to use new pressed key
+     * Switch canMove
      *
-     * @param isAvailable Is available
+     * @param canSnakeMove Is available
      */
-    public void setKeyAvailable(boolean isAvailable){
-        keyAvailable = isAvailable;
+    public void setCanMove(boolean canSnakeMove) {
+        canMove = canSnakeMove;
     }
 }

@@ -54,7 +54,7 @@ public class Point {
     }
 
     /***
-     * Checking if points coordinates are the same
+     * Check if points coordinates are the same
      *
      * @param point Point to compare
      * @return Has the same cords

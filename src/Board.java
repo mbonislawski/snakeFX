@@ -32,7 +32,7 @@ public class Board {
         snake = new Snake(new Point(rows_nr / 2, cols_nr / 2));
 
         // Add Food in random position
-        food = new Food(new Point(5, 5));
+        food = new Food(new Point(getRandomInt(cols_nr), getRandomInt(rows_nr)));
     }
 
     /***
@@ -56,7 +56,6 @@ public class Board {
 
         // Draw snake
         context.setFill(Color.GREEN);
-
         for (Point point : snake.getPointsList()) {
             int paint_snake_x = point.getPosX() * dot_size;
             int paint_snake_y = point.getPosY() * dot_size;
@@ -64,7 +63,6 @@ public class Board {
         }
         context.setFill(Color.WHITE);
         context.fillText("Score : " + snake.getScore(), windowWidth - 80, dot_size * 1.5);
-
     }
 
     /***
@@ -95,7 +93,7 @@ public class Board {
         snake.moveSnake();
         if (snake.getPointsList().get(0).isEqual(food.getPoint())) {
             snake.growSnake(food.getPoint());
-            food.setPoint(getRandomPoint());
+            food.setPoint(createPoint());
         } else if (!snake.getPointsList().get(0).inWindow(0, 0, rows_nr - 1, cols_nr - 1)) {
             resetBoard();
         } else if (snake.checkItselfCollision()) {
@@ -104,11 +102,11 @@ public class Board {
     }
 
     /***
-     * Get random Point object which is not part of snake
+     * Create random Point object which is not part of the snake
      *
      * @return Point with random cords
      */
-    private Point getRandomPoint() {
+    private Point createPoint() {
         outerLoop:
         while (true) {
             int randX = getRandomInt(rows_nr);

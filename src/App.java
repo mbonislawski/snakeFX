@@ -1,8 +1,11 @@
 import javafx.application.Application;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class App extends Application {
@@ -20,9 +23,9 @@ public class App extends Application {
     }
 
     /***
-     * Overriding build in JavaFx method "start"
+     * Overriding JavaFx method (start)
      *
-     * @param primaryStage -
+     * @param primaryStage
      */
     @Override
     public void start(Stage primaryStage) {
@@ -38,7 +41,7 @@ public class App extends Application {
         gameBoard.drawBoard(context);
 
         canvas.setOnKeyPressed(e -> {
-            if (gameEngine.isKeyAvailable()){
+            if (gameEngine.canMove()){
                 Snake snake = gameBoard.getSnake();
                 switch (e.getCode()) {
                     case UP:
@@ -54,7 +57,7 @@ public class App extends Application {
                         snake.setDirRight();
                         break;
                 }
-                gameEngine.setKeyAvailable(false);
+                gameEngine.setCanMove(false);
             }
         });
 
@@ -64,7 +67,21 @@ public class App extends Application {
         primaryStage.setResizable(false);
         primaryStage.setTitle("Snake - 267955");
         primaryStage.setOnCloseRequest(e -> System.exit(0));
-        primaryStage.setScene(scene);
+
+        // draw placeholder screen with button to start the game
+        VBox mainLayout = new VBox(175);
+        Scene menuScene = new Scene(mainLayout, screenWidth, screenHeight);
+        String style = "-fx-background-color: rgb(0, 0, 0);";
+        mainLayout.setStyle(style);
+
+        Button startBtn = new Button("START");
+        startBtn.setMaxSize(100, 200);
+        startBtn.setOnAction(event -> primaryStage.setScene(scene));
+
+        mainLayout.getChildren().add(startBtn);
+        mainLayout.setAlignment(Pos.CENTER);
+
+        primaryStage.setScene(menuScene);
         primaryStage.show();
 
         gameEngine.startGame();

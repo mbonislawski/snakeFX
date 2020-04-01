@@ -7,7 +7,7 @@ public class Food {
      *
      * @param point Point object
      */
-    public Food(Point point){
+    public Food(Point point) {
         this.point = point;
     }
 
@@ -21,11 +21,11 @@ public class Food {
     }
 
     /***
-     * Setting Food position
+     * Set Food position
      *
      * @param point Point object
      */
-    public void setPoint(Point point){
+    public void setPoint(Point point) {
         this.point = point;
     }
 }
